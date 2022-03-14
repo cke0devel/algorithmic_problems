@@ -1,17 +1,14 @@
 # difficulty: Easy
-# Wrong Answer:
+# Runtime Error:
 #   input:
-#       [1,2,2,1]
-#       [2]
-#   Output:
-#       [2, 2]
-#   Expected:
-#       [2]
+#       [4,3,9,3,1,9,7,6,9,7]
+#       [5,0,8]
 
 class Solution:
     def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:
         from collections import Counter
-        from itertools import chain
 
         c1, c2 = Counter(nums1), Counter(nums2)
-        return list(chain(*[[k]*v for k,v in c1.items() if k in c2]))
+
+        return list(reduce(lambda x,y: x+y,
+                           [[k]*min(v, c2[k]) for k, v in c1.items() if k in c2]))
