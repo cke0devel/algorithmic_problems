@@ -1,8 +1,6 @@
 # difficulty: Medium
-# Wrong Answer:
-#   Input: [6,7,8,2,7,1,3,9,null,1,4,null,null,null,5]
-#   Output: 34
-#   Expected: 19
+# Runtime: 294 ms, faster than 53.07% of Python3 online submissions for Deepest Leaves Sum.
+# Memory Usage: 17.7 MB, less than 94.99% of Python3 online submissions for Deepest Leaves Sum.
 
 # Definition for a binary tree node.
 # class TreeNode:
@@ -10,12 +8,13 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
-
-from collections import defaultdict
-
 class Solution:
-    depthSum = defaultdict(int)
-    maxDepth = -1
+
+    def __init__(self):
+        from collections import defaultdict
+
+        self.depthSum = defaultdict(int)
+        self.maxDepth = -1
 
     def deepestLeavesSum(self, root: Optional[TreeNode]) -> int:
         self._dfs(0, root)
