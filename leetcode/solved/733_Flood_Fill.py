@@ -1,15 +1,15 @@
 # diffidulty: Easy
-# Runtime Error:
-#   input:[[0,0,0],[0,1,1]]
-#         1
-#         1
-#         1
+# Runtime: 80 ms, faster than 85.04% of Python3 online submissions for Flood Fill.
+# Memory Usage: 14 MB, less than 92.97% of Python3 online submissions for Flood Fill.
 
 class Solution:
     def floodFill(self, image: List[List[int]], sr: int, sc: int, newColor: int) -> List[List[int]]:
         H,W = len(image), len(image[0])
 
         oldColor = image[sr][sc]
+
+        if oldColor == newColor:
+            return image
 
         image[sr][sc] = newColor
 
